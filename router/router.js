@@ -4,7 +4,6 @@ const contactBook =require('../controllers/contact-book/contact')
 const billData =require('../controllers/bill-data/bill')
 const tableData =require('../controllers/table-book/table')
 
-
 const express = require('express')
 const router =  express.Router();
 
@@ -49,7 +48,11 @@ router.get('/api/getAllusers', registercontrollerObj.AllUaserList);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+router.get('/api/contactbook_list', contactBook.contactBooklistData);
+ router.post('/api/add_contactbook', contactBook.addcontactBook);
+ router.delete('/api/delete_contact/:id', contactBook.deleteContactData);
+ router.put('/api/update_contact_list', contactBook.UpdateConatctData);
+ 
 
 
 

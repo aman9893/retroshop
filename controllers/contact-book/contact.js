@@ -68,7 +68,7 @@ module.exports.UpdateConatctData = function (req, res) {
     })
 }
 module.exports.deleteContactData = function (req, res) {
-    connection.query('DELETE FROM contact_book WHERE contact_id=?', [req.params.contact_id], (err, rows, fields) => {
+    connection.query('DELETE FROM contact_book WHERE contact_id=?', [req.params.id], (err, rows, fields) => {
         if (!err) {
             res.json({
                 status: true,

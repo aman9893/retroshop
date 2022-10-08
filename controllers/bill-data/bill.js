@@ -28,7 +28,6 @@ module.exports.billListByid = function(req, res) {
 /////////////////////////////////////////////////////////
 module.exports.addBill = function (req, res) {
     var responseJson = JSON.stringify(req.body);
-    console.log(responseJson)
     var users = {
         "user_id": req.body.user_id,
         "bill_no": req.body.bill_no,
@@ -37,23 +36,37 @@ module.exports.addBill = function (req, res) {
         "table_name": req.body.table_name,
         "total_bill": req.body.total_bill,
         "bill_status": req.body.bill_status,
-
+        "cutomer_name": req.body.cutomer_name,
+        "cutomer_number": req.body.cutomer_number,
+        "create_date": req.body.create_date,
     }
-    connection.query('INSERT INTO    book_bill SET ?', users, function (error, results, fields) {
+    var users1 = {
+        "user_id": req.body.user_id,
+        "contact_name": req.body.cutomer_name,
+        "contact_number": req.body.cutomer_number,
+        "contact_email": '',
+        "contact_status": 1,
+    }
+    
+    connection.query('INSERT INTO  book_bill SET ?', users, function (error, results, fields) {
+        connection.query('INSERT INTO  contact_book SET ?', users1, function (error2, results2, fields) {
         if (error) {
             res.json({
                 status: false,
                 message: error + 'there are some error with query'
             })
         } else {
-
             res.json({
                 status: true,
                 data: results,
                 message: 'Bill Save  Successfully'
             })
+
         }
-    })
+});
+});
+
+
 }
 
 
@@ -69,6 +82,10 @@ module.exports.UpdatebillInfo = function (req, res) {
         "table_name": req.body.table_name,
         "total_bill": req.body.total_bill,
         "bill_status": req.body.bill_status,
+        "cutomer_name": req.body.cutomer_name,
+        "cutomer_number": req.body.cutomer_number,
+        "create_date": req.body.create_date,
+
     }
 
     connection.query('UPDATE  book_bill SET ? WHERE bill_id = ?', [users, bill_id], function (error, results, fields) {
