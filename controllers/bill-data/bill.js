@@ -27,6 +27,7 @@ module.exports.billListByid = function(req, res) {
 }
 /////////////////////////////////////////////////////////
 module.exports.addBill = function (req, res) {
+    console.log(req.body)
     var responseJson = JSON.stringify(req.body);
     var users = {
         "user_id": req.body.user_id,
@@ -39,6 +40,10 @@ module.exports.addBill = function (req, res) {
         "cutomer_name": req.body.cutomer_name,
         "cutomer_number": req.body.cutomer_number,
         "create_date": req.body.create_date,
+        "cutomer_address":req.body.cutomer_address,
+        "delivery_charge":req.body.delivery_charge,
+        "discount":req.body.discount,
+        "status":req.body.status,
     }
     var users1 = {
         "user_id": req.body.user_id,
@@ -85,6 +90,9 @@ module.exports.UpdatebillInfo = function (req, res) {
         "cutomer_name": req.body.cutomer_name,
         "cutomer_number": req.body.cutomer_number,
         "create_date": req.body.create_date,
+        "delivery_charge":req.body.delivery_charge,
+        "discount":req.body.discount,
+        "status":req.body.status,
 
     }
 
