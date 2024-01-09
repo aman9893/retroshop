@@ -1,8 +1,8 @@
 var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: 'password',
+    user: 'phpmyadmin',
+    password: '123',
     database: 'restro',
     port: '3306',
     connectTimeout: 60000,
