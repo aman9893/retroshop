@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-    host: 'localhost',
+    host: '3.147.85.152',
     user: 'debian-sys-maint',
     password: '7VsHRE7StDlcr3TP',
     database: 'restro',
