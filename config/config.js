@@ -1,11 +1,11 @@
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-    host: '3.147.85.152',
-    user: 'debian-sys-maint',
-    password: '7VsHRE7StDlcr3TP',
+    host: '18.217.110.106',
+    user: 'root',
+    password: 'root',
     database: 'restro',
     port: '3306',
-    connectTimeout: 60000,
+    connectTimeout: 10000,
 });
 connection.connect(function(err) {
     if (!err) {
