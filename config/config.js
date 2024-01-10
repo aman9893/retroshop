@@ -1,8 +1,8 @@
 var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'phpmyadmin',
-    password: '123',
+    user: 'debian-sys-maint',
+    password: '7VsHRE7StDlcr3TP',
     database: 'restro',
     port: '3306',
     connectTimeout: 60000,
