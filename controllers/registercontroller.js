@@ -18,7 +18,6 @@ module.exports.AllUaserList = function(req, res) {
     });
 }
 
-
 module.exports.UaserListById = function(req, res) {
     console.log(req.params.id)
 
@@ -53,8 +52,9 @@ module.exports.register = function(req, res) {
         "rolename_id": 1,
         "phone_number": req.body.phone_number,
         "shop_address": req.body.shop_address,
-        "gst_num": req.body.phone_number,
-        "username": req.body.shop_address,
+        "gst_num": req.body.gst_num,
+        "username": req.body.name,
+        "shop_type": req.body.shop_type,
     }
     connection.query('INSERT INTO users SET ?', users, function(error, results, fields) {
         if (error) {
@@ -91,8 +91,9 @@ module.exports.upateUser = function(req, res) {
         "rolename_id": 1,
         "phone_number": req.body.phone_number,
         "shop_address": req.body.shop_address,
-        "gst_num": req.body.phone_number,
+        "gst_num": req.body.gst_num,
         "username": req.body.shop_address,
+        "shop_type": req.body.shop_type,
     }
     connection.query('UPDATE users SET ? WHERE id = ?', [data, id], function(error, results, fields) {
 

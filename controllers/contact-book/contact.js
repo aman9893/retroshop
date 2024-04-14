@@ -20,6 +20,14 @@ module.exports.addcontactBook = function (req, res) {
         "contact_email": req.body.contact_email,
         "contact_status": req.body.contact_status,
     }
+    connection.query('SELECT * FROM contact_book WHERE contact_number = ?', [ req.body.contact_number], function (error, results, fields) {
+        if (results.length>0) {
+            res.json({
+                status: false,
+                message: 'This Contact Already Saved'
+            })
+        } 
+    else{
     connection.query('INSERT INTO contact_book SET ?', users, function (error, results, fields) {
         if (error) {
             res.json({
@@ -35,8 +43,10 @@ module.exports.addcontactBook = function (req, res) {
                     message: 'Contact  Create  Successfully'
                 })
             })
-        }
+            }
     })
+}
+})
 }
 
 module.exports.UpdateConatctData = function (req, res) {
@@ -48,7 +58,7 @@ module.exports.UpdateConatctData = function (req, res) {
         "contact_email": req.body.contact_email,
         "contact_status": req.body.contact_status,
     }
-
+  
     connection.query('UPDATE contact_book SET ? WHERE contact_id = ?', [data, contact_id], function (error, results, fields) {
         if (error) {
             res.json({
@@ -57,7 +67,7 @@ module.exports.UpdateConatctData = function (req, res) {
             })
         } else {
             var id = contact_id;
-            connection.query('SELECT * FROM contact_book WHERE contact_id = ?', [contact_id], function (error, results, fields) {
+            connection.query('SELECT * FROM contact_book WHERE contact_id = ?', [id], function (error, results, fields) {
                 res.json({
                     status: true,
                     data: results,
@@ -65,8 +75,11 @@ module.exports.UpdateConatctData = function (req, res) {
                 })
             })
         }
-    })
+ 
+})
+
 }
+
 module.exports.deleteContactData = function (req, res) {
     connection.query('DELETE FROM contact_book WHERE contact_id=?', [req.params.id], (err, rows, fields) => {
         if (!err) {
