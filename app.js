@@ -32,6 +32,6 @@ app.use('/', routes)
 
 app.get('/test', (req,res) => res.send('Hello World'))
 
-app.listen(port, ()=> console.log('port is running successfully'))
+app.listen(port, ()=> console.log( port ,'port is running successfully'))
 
 module.exports = app;
