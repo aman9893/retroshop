@@ -2,7 +2,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: '1234',
     database: 'restro',
     port: '3306',
     connectTimeout: 10000,
