@@ -23,7 +23,7 @@ module.exports.monthlyDataFetch = function(req, res) {
     if (varid.NewData != null) {
         var userid = varid.NewData.id;
     }
-    let sql =  `SELECT Date_format(create_date, '%M') AS label, Sum(total_bill) AS y FROM book_bill WHERE Year(create_date) = ${year} and  user_id  = ${userid}  GROUP BY Month(create_date) `;
+    let sql =  `SELECT Date_format(create_date, '%M') AS label, Sum(total_bill) AS y FROM book_bill WHERE Year(create_date) = ${year} and  user_id  = ${userid}  GROUP BY Month(create_date)`;
     // var sql1 = 'SELECT * FROM users WHERE email = ? OR phone_number = ?';
    connection.query(sql,(err, result) => {
         if (err) throw err;
