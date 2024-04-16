@@ -143,6 +143,7 @@ module.exports.addMenu = function(req, res) {
         "menu_price": req.body.menu_price,
         "menu_url": req.body.menu_url,
         "menu_categories": req.body.menu_categories,
+        "category_id": req.body.category_id,
     }
     connection.query('INSERT INTO menu SET ?', users, function(error, results, fields) {
 
@@ -171,6 +172,7 @@ module.exports.UpdateMenu = function(req, res) {
         "menu_price": req.body.menu_price,
         "menu_url": req.body.menu_url,
         "menu_categories": req.body.menu_categories,
+        "category_id": req.body.category_id,
     }
 
     connection.query('UPDATE menu SET ? WHERE menu_id = ?', [data, menuid], function(error, results, fields) {
