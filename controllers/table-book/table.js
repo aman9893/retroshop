@@ -156,7 +156,7 @@ module.exports.addMenu = function(req, res) {
                 res.json({
                     status: true,
                     data: results,
-                    message: 'Menu Save Successfully'
+                    message: 'Item Saved Successfully'
                 })
             
         }
@@ -180,13 +180,13 @@ module.exports.UpdateMenu = function(req, res) {
         if (error) {
             res.json({
                 status: false,
-                message: 'there are some error with query'
+                message: error
             })
         } else {
                 res.json({
                     status: true,
                     data: results,
-                    message: 'Menu Update  Successfully'
+                    message: 'Item Updated  Successfully'
                 })
         }
     })
@@ -197,7 +197,7 @@ module.exports.deleteMenu = function(req, res) {
         if (!err) {
             res.json({
                 status: true,
-                message: 'Menu Deleted Successfully'
+                message: 'Item Deleted Successfully'
             })
         } else {
         }
