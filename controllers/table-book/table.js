@@ -116,7 +116,7 @@ module.exports.menuInfoList = function(req, res) {
     if (varid.NewData != null) {
         var userid = varid.NewData.id;
     }
-    connection.query('SELECT * FROM  menu WHERE user_id = ?', [userid] + ' ORDER BY menu_id DESC  ', (err, result) => {
+    connection.query('SELECT * FROM  menu WHERE user_id = ' +[userid] + ' ORDER BY menu_id DESC ', (err, result) => {
         if (err) throw err;
         res.end(JSON.stringify(result));
     })
