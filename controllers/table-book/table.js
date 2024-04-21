@@ -8,7 +8,7 @@ module.exports.tabelInfoList = function(req, res) {
     if (varid.NewData != null) {
         var userid = varid.NewData.id;
     }
-connection.query('SELECT * FROM  book_bill   RIGHT JOIN restro_table   ON  book_bill.table_id =restro_table.table_id   WHERE restro_table.user_id = ?', [userid], (err, result) => {
+connection.query('SELECT * FROM  book_bill   RIGHT JOIN restro_table   ON  book_bill.table_id =restro_table.table_id   WHERE restro_table.user_id = ?', [userid] , (err, result) => {
         if (err) throw err;
         res.end(JSON.stringify(result));
     })
@@ -215,7 +215,7 @@ module.exports.attenderInfoList = function(req, res) {
     if (varid.NewData != null) {
         var userid = varid.NewData.id;
     }
-    connection.query('SELECT * FROM  attender WHERE user_id = ?', [userid], (err, result) => {
+    connection.query('SELECT * FROM  attender WHERE  user_id = ' + [userid] + ' ORDER BY attender_id DESC ', (err, result) => {
         if (err) throw err;
         res.end(JSON.stringify(result));
     })

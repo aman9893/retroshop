@@ -6,7 +6,7 @@ module.exports.contactBooklistData = function (req, res, next) {
     token2 = token.slice(7, token.length).trimLeft();
     varid = jwt.decode(token2)
     var userid = varid.NewData.id;
-    connection.query('SELECT * FROM contact_book WHERE user_id = ?', [userid], (err, result) => {
+    connection.query('SELECT * FROM contact_book WHERE user_id = ' +[userid] + ' ORDER BY contact_id DESC ', (err, result) => {
         if (err) throw err;
         res.end(JSON.stringify(result));
     })
