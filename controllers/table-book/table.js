@@ -129,7 +129,7 @@ module.exports.menuFilter = function(req, res) {
     if (varid.NewData != null) {
         var userid = varid.NewData.id;
     }
-    connection.query('SELECT * FROM  menu WHERE menu_categories = ?', [req.params.id], (err, result) => {
+    connection.query('SELECT * FROM  menu WHERE category_id = ?', [req.params.id], (err, result) => {
         if (err) throw err;
         res.end(JSON.stringify(result));
     })
