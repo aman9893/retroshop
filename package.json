@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "npm test ",
-    "start": "node app.js"
+    "start": "node index.js"
   },
   "keywords": [
     "office320",
@@ -19,7 +19,8 @@
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
     "logrocket": "^3.0.1",
-    "mysql": "^2.16.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.7",
     "nodemailer": "^6.4.17",
     "nodemon": "^1.19.1",
     "path": "^0.12.7",
