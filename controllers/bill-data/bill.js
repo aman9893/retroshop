@@ -129,7 +129,6 @@ module.exports.UpdatebillInfo = function (req, res) {
         "subtotal_bill":req.body.subtotal_bill
 
     }
-    console.log( req.body.bill_id)
 
     connection.query('UPDATE  book_bill SET ? WHERE bill_id = ?', [users, bill_id], function (error, results, fields) {
 
@@ -158,7 +157,6 @@ module.exports.UpdateCompeleteOrder = function (req, res) {
         "table_name": req.body.table_name, 
         "table_id": req.body.table_id,
     }
-    console.log( req.body.bill_no)
 
     connection.query('UPDATE  book_bill SET ? WHERE bill_no = ?', [data, bill_no], function (error, results, fields) {
 
@@ -268,7 +266,6 @@ module.exports.categoryList = function (req, res) {
 module.exports.categoryListByid = function(req, res) {
     connection.query('SELECT * FROM category WHERE  category_id=?', [req.params.category_id], (err, results) => {
         if (err) throw err;
-        console.log(results)
         res.end(JSON.stringify(results));
     });
 }

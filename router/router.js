@@ -3,6 +3,8 @@ const logincontrollerObj = require('../controllers/login');
 const contactBook =require('../controllers/contact-book/contact')
 const billData =require('../controllers/bill-data/bill')
 const tableData =require('../controllers/table-book/table');
+const khatabookList =require('../controllers/khatabook');
+
 
 
 const express = require('express')
@@ -78,6 +80,21 @@ router.get('/api/contactbook_list', contactBook.contactBooklistData);
  router.delete('/api/deletecategory/:id', billData.deleteCategoryid);
  router.put('/api/update_category', billData.updatecategory);
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+ router.get('/api/khatabook_list', khatabookList.khatabookList);
+ router.get('/api/khataamount_list/:khatanum', khatabookList.khataamountbyid);
+ router.post('/api/add_khatabook', khatabookList.addKhataBook);
+ router.post('/api/addamount_khatabook', khatabookList.addKhataBookAmount);
+ router.delete('/api/delete_khatahisab/:id', khatabookList.deleteKhatahisab);
+ router.delete('/api/delete_khatahisabCustomer/:id', khatabookList.deleteKhataCustomer);
+
+//  khatabooklist: 'api/khatabook_list',
+//        addkhatabook: 'api/add_khatabook',
+//        addKhataAmount: 'api/addamount_khatabook',
+//        khataAmountbooklist:'api/khataamount_list',
+//        deleteKhataHisab:'api/delete_khatahisab',
+//        deleteKhataCustomer:'api/delete_khataCustomer',
 
 module.exports = router;

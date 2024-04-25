@@ -44,7 +44,7 @@ module.exports.authenticate = function (req, res) {
             else {
                 res.json({
                     status: false,
-                    message: "Email does not exits"
+                    message: "Email or mobile no does not exits"
                 });
             }
         }
@@ -88,7 +88,6 @@ otp = otp * 100000;
 otp = parseInt(otp);
 var userId;
 module.exports.forgetPassword = function (req, res) {
-    console.log(req.body)
     if (req.body.value == 'nootpCheck' && req.body.flag === 'email') {
         var email = req.body.email;
         var sql = 'SELECT * FROM users WHERE email = ?';
@@ -102,9 +101,7 @@ module.exports.forgetPassword = function (req, res) {
             }
 
             else {
-                console.log(results)
                 if (results && results.length > 0) {
-                    console.log(results)
                     userId = results[0].id;
                     let transporter = nodemailer.createTransport({
                         service: 'Gmail',

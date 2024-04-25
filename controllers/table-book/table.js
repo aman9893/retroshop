@@ -34,7 +34,6 @@ module.exports.monthlyDataFetch = function(req, res) {
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 module.exports.addTable = function(req, res) {
-    console.log(req.body)
     var users = {
         "user_id": req.body.user_id,
         "table_name": req.body.table_name,
@@ -48,7 +47,6 @@ module.exports.addTable = function(req, res) {
             })
         } else {
             var id = results.insertId;
-            console.log(id + 'id')
             connection.query('SELECT * FROM restro_table WHERE _id = ?', [id], function(error, results, fields) {
                 res.json({
                     status: true,
@@ -61,7 +59,6 @@ module.exports.addTable = function(req, res) {
 }
 
 module.exports.Updatetable = function(req, res) {
-    console.log(req.body)
     let tableid = req.body.table_id
     var data = {
         "user_id": req.body.user_id,
@@ -136,7 +133,6 @@ module.exports.menuFilter = function(req, res) {
 }
 
 module.exports.addMenu = function(req, res) {
-    console.log(req.body)
     var users = {
         "user_id": req.body.user_id,
         "menu_name": req.body.menu_name,
@@ -164,7 +160,6 @@ module.exports.addMenu = function(req, res) {
 }
 
 module.exports.UpdateMenu = function(req, res) {
-    console.log(req.body)
     let menuid = req.body.menu_id
     var data = {
         "user_id": req.body.user_id,
@@ -222,7 +217,6 @@ module.exports.attenderInfoList = function(req, res) {
 }
 
 module.exports.addattender = function(req, res) {
-    console.log(req.body)
     var users = {
         "user_id": req.body.user_id,
         "attender_name": req.body.attender_name,
@@ -236,7 +230,6 @@ module.exports.addattender = function(req, res) {
             })
         } else {
             var id = results.insertId;
-            console.log(id + 'id')
             connection.query('SELECT * FROM attender WHERE _id = ?', [id], function(error, results, fields) {
                 res.json({
                     status: true,
@@ -249,7 +242,6 @@ module.exports.addattender = function(req, res) {
 }
 
 module.exports.UpdateAttender= function(req, res) {
-    console.log(req.body)
     let attenderid = req.body.attender_id
     var data = {
         "user_id": req.body.user_id,

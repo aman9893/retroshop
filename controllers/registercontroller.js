@@ -2,11 +2,9 @@
 var connection = require('../config/config');
 
 module.exports.AllUaserList = function(req, res) {
-    console.log(req.params.id)
 
     connection.query('SELECT * FROM users',  (err, results, fields) => {
         if (!err) {
-            console.log(results)
             res.json({
                 status: true,
                 message: 'USER Data',
@@ -19,11 +17,9 @@ module.exports.AllUaserList = function(req, res) {
 }
 
 module.exports.UaserListById = function(req, res) {
-    console.log(req.params.id)
 
     connection.query('SELECT * FROM users WHERE id=?', [req.params.id], (err, results, fields) => {
         if (!err) {
-            console.log(results)
             res.json({
                 status: true,
                 message: 'USER Data',
@@ -75,7 +71,6 @@ module.exports.register = function(req, res) {
 
 
 module.exports.upateUser = function(req, res) {
-    console.log(req.body)
     var today = new Date();
     let id = req.body.id
     var data = {
