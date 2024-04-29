@@ -5,6 +5,7 @@ const billData =require('../controllers/bill-data/bill')
 const tableData =require('../controllers/table-book/table');
 const khatabookList =require('../controllers/khatabook');
 
+const taxBook =require('../controllers/bill-data/tax');
 
 
 const express = require('express')
@@ -72,6 +73,14 @@ router.get('/api/contactbook_list', contactBook.contactBooklistData);
  router.delete('/api/delete_contact/:id', contactBook.deleteContactData);
  router.put('/api/update_contact_list', contactBook.UpdateConatctData);
  
+
+ /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+router.get('/api/tax_list', taxBook.taxinfolist);
+router.post('/api/add_tax', taxBook.addtax);
+router.delete('/api/delete_tax/:id', taxBook.deleteTax);
+router.put('/api/update_tax', taxBook.Updatetax);
+
+
 
 
  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
