@@ -177,33 +177,11 @@ module.exports.UpdateCompeleteOrder = function (req, res) {
 }
 
 module.exports.deleteBill = function (req, res) {
-    var responseJson = JSON.stringify(req.body);
-
-    var users = {
-        "user_id": req.body.user_id,
-        "bill_no": req.body.bill_no,
-        "bill_order": responseJson,
-        "table_id": '',
-        "table_name": '',
-        "total_bill": req.body.total_bill,
-        "bill_status": '',
-        "cutomer_name": req.body.cutomer_name,
-        "cutomer_number": req.body.cutomer_number,
-        "create_date": req.body.create_date,
-        "delivery_charge":req.body.delivery_charge,
-        "discount":req.body.discount,
-        "status":req.body.status,
-        "attender_id":req.body.attender_id,
-        "attender_name":req.body.attender_name,
-        "token_no":req.body.token_no,
-        "payment_type":req.body.payment_type,  "subtotal_bill":req.body.subtotal_bill
-
-    }
-    connection.query('UPDATE   book_bill SET? WHERE bill_id = ?', [users,req.params.id], function (error, results, fields) {
+    connection.query('DELETE FROM book_bill WHERE bill_id=?', [req.params.id], function (error, results, fields) {
         if (!error) {
             res.json({
                 status: true,
-                message: 'Table Compete Successfully'
+                message: 'Bill Deleted Successfully'
 
             })
         } else {
@@ -246,7 +224,7 @@ module.exports.CountAllTable = function (req, res) {
 }
 
 
-///category-------------------------------------------------------------
+// ------------------------------------------------///category-------------------------------------------------------------
 
 
 module.exports.categoryList = function (req, res) {
