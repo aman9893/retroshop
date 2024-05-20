@@ -12,7 +12,7 @@ module.exports.authenticate = function (req, res) {
         if (error) {
             res.json({
                 status: false,
-                message: error
+                message: error.message
             })
         }
         else {
