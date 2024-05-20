@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "npm test ",
-    "start": "node index.js"
+    "start": "node app.js"
   },
   "keywords": [
     "office320",
@@ -16,11 +16,12 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
-    "express": "^4.16.4",
+    "express": "^4.19.2",
     "jsonwebtoken": "^8.5.1",
     "logrocket": "^3.0.1",
     "mysql": "^2.18.1",
     "mysql2": "^3.9.7",
+    "node-thermal-printer": "^4.4.2",
     "nodemailer": "^6.4.17",
     "nodemon": "^1.19.1",
     "path": "^0.12.7",

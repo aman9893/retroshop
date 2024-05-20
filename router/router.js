@@ -7,12 +7,14 @@ const khatabookList =require('../controllers/khatabook');
 
 const taxBook =require('../controllers/bill-data/tax');
 
+const printer =require('../controllers/printer')
 
 const express = require('express')
 const router =  express.Router();
 
 
 //////////////////////////////////////////////////////////////////////////
+router.post('/api/printrecipt', printer.printerdata);
 
 router.get('/api/get_table', tableData.tabelInfoList);
 router.put('/api/update_table', tableData.Updatetable);

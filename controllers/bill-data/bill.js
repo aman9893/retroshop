@@ -69,7 +69,8 @@ module.exports.addBill = function (req, res) {
         "attender_name":req.body.attender_name,
         "token_no":req.body.token_no,
         "payment_type":req.body.payment_type,
-        "subtotal_bill":req.body.subtotal_bill
+        "subtotal_bill":req.body.subtotal_bill,
+        "gst_amt":req.body.gst_amt,
     }
     var users1 = {
         "user_id": req.body.user_id,
@@ -126,7 +127,8 @@ module.exports.UpdatebillInfo = function (req, res) {
         "attender_name":req.body.attender_name,
         "token_no":req.body.token_no,
         "payment_type":req.body.payment_type,
-        "subtotal_bill":req.body.subtotal_bill
+        "subtotal_bill":req.body.subtotal_bill,
+        "gst_amt":req.body.gst_amt,
 
     }
 
