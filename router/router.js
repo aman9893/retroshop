@@ -46,7 +46,9 @@ router.get('/api/filter_menu/:id',tableData.menuFilter)
  router.get('/api/getbill_byTableid/:id', billData.billListByid);
  router.get('/api/getbill_byBill/:id', billData.billListBillId);
  router.put('/api/complete_order', billData.UpdateCompeleteOrder);
+router.get('/api/lasttoken', billData.lasttoken);
 
+    
  
  
  router.get('/api/getallcount/',billData.CountAllTable)
@@ -65,9 +67,9 @@ router.get('/api/user_register_info/:id', registercontrollerObj.UaserListById);
 router.post('/api/forgetpassword', logincontrollerObj.forgetPassword);
 router.put('/api/update_trial_days', logincontrollerObj.UpdatePaymentUserDays);
 router.post('/api/UpdatePassword', logincontrollerObj.UpdatePassword);
-
 router.get('/api/getAllusers', registercontrollerObj.AllUaserList);
 
+router.delete('/api/delete_user/:id', registercontrollerObj.deleteUser);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 router.get('/api/contactbook_list', contactBook.contactBooklistData);
