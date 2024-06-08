@@ -17,6 +17,19 @@ module.exports.billList = function (req, res) {
     })
 }
 
+module.exports.lasttoken = function (req, res) {
+    let token = req.headers['x-access-token'] || req.headers['authorization'];
+    token2 = token.slice(7, token.length).trimLeft();
+    varid = jwt.decode(token2)
+    if (varid.NewData != null) {
+        var userid = varid.NewData.id;
+    }
+    connection.query('SELECT   token_no FROM  book_bill WHERE user_id = ' + userid + ' ORDER BY bill_id DESC LIMIT 1  ', (err, result) => {
+        if (err) throw err;
+        res.end(JSON.stringify(result));
+    })
+}
+
 
 module.exports.billListByid = function(req, res) {
     connection.query('SELECT * FROM book_bill WHERE  table_id=?', [req.params.id], (err, results) => {

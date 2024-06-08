@@ -116,5 +116,30 @@ module.exports.getUserProfile = function (req, res) {
         }
     });
 }
+module.exports.deleteUser = function (req, res) {
+    connection.query('DELETE FROM users WHERE id=?', [req.params.id], function (error, results, fields) {
+
+        if (!error) {
+            connection.query('DELETE FROM attender WHERE user_id=?', [req.params.id], function (error, results, fields) {
+                connection.query('DELETE FROM book_bill WHERE user_id=?', [req.params.id], function (error, results, fields) {
+                    connection.query('DELETE FROM category WHERE user_id=?', [req.params.id], function (error, results, fields) {
+                        connection.query('DELETE FROM khatabook WHERE user_id=?', [req.params.id], function (error, results, fields) {
+                            connection.query('DELETE FROM menu WHERE user_id=?', [req.params.id], function (error, results, fields) {
+                                connection.query('DELETE FROM restro_table WHERE user_id=?', [req.params.id], function (error, results, fields) {
+                                    connection.query('DELETE FROM tax WHERE user_id=?', [req.params.id], function (error, results, fields) {
+                                        connection.query('DELETE FROM users WHERE user_id=?', [req.params.id], function (error, results, fields) {
+                                        });    });    });    });    });});    });});    
+                  
+            res.json({
+                status: true,
+                message: 'User Deleted Successfully'
+            })
+        } 
+        else {
+            console.log(error)
+        }
+    
+    });
+}
 
 
